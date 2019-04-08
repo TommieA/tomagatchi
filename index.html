@@ -1,0 +1,41 @@
+<!DOCTYPE html> 
+<html>
+    <head>  
+        <title>Tomagotchi</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!--<img id="goose" src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Canada_goose_flight_cropped_and_NR.jpg"></img>
+        <img id="hunter" src="https://cdn.pixabay.com/photo/2017/10/06/21/10/hunting-2824661_1280.png"></img>
+        <img id="background" src="https://farm1.staticflickr.com/30/66241402_e06ec4fee7_b.jpg"></img>-->
+    </head>
+
+    <body style="background-image: url(&quot;https://farm1.staticflickr.com/30/66241402_e06ec4fee7_b.jpg&quot;);">
+         <img id="goose" src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Canada_goose_flight_cropped_and_NR.jpg" style="top: 492.24px; left: 862.426px;">
+         <img id="hunter" src="https://cdn.pixabay.com/photo/2017/10/06/21/10/hunting-2824661_1280.png">
+
+
+                <form>
+                    <input type="text" placeholder="Name the Goose" id="input-name"> 
+                    <button type="submit" id="start">Submit</button>
+                </form>
+
+                <p class='head' id='age'>Age:<span>0</span></p>
+                <p class='head' id='hunger'>Hunger:<span>0</span></p>
+                <p class='head' id='boredom'>Boredom:<span>0</span></p>
+                <p class='head' id='sleepiness'>Sleepiness:<span>0</span></p>
+                
+               <div id="container">
+                   <div id="animation">${goose}</div>
+               </div>
+        
+                <div id="buttons">
+                    <button id="feed">Feed</button>
+                    <button id="sleep">Sleep</button>
+                    <button id="loop">Loop</button>
+                    <button id="stop">Stop</button>
+                </div> 
+
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+                <script src="js/app.js"></script> 
+        </body>
+
+        

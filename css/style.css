@@ -1,0 +1,65 @@
+/* #container {
+    width: 250px;
+    height: 250px;
+    position: relative;
+}
+
+#animate{
+    width: 25px;
+    height: 25px;
+    position: absolute;
+} */
+
+#goose {
+    height: 120px;
+    width: 200px;
+    position: relative;
+}
+
+#hunter {
+    height: 100px;
+    width: 200px;
+    position: fixed;
+    bottom: 50px;
+    left: 50px;
+    opacity: 0;
+}
+
+#background {
+    background-attachment: fixed;
+    background-position: 50%, 50%;
+}
+
+.head {
+    background-color: white;
+    width: 160px;
+    font-weight: 900;
+}
+
+#loop {
+    position: fixed;
+    bottom: 1in;
+    right: 1.13in;
+}
+
+#sleep {
+    position: fixed;
+    bottom: 1in;
+    right: 2.1in;
+}
+
+#feed {
+    position: fixed;
+    bottom: 1in;
+    right: 3in;
+}
+
+#start {
+    position: fixed;
+}
+
+#stop {
+    position: fixed;
+    bottom: .5in;
+    right: 2.1in;
+}
