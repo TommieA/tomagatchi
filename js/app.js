@@ -19,7 +19,7 @@ const duck = new tomagotchi();
 const secondsGoUp = () => {
     seconds++;
     $('.time').text(seconds)
-    if(seconds % 1 === 0){
+    if(seconds % 5 === 0){
         duck.hunger++;
         duck.speed +=50;
         $('#hunger').text(`Hunger: ${duck.hunger}`);
@@ -80,7 +80,7 @@ function feed() {
 function sleep(){
     duck.speed += 50; 
     duck.sleepiness--;
-    $('#sleep').text(`Sleepiness: ${duck.sleepiness}`);
+    $('#sleepiness').text(`Sleepiness: ${duck.sleepiness}`);
 };
 
 function loop(){
