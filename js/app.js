@@ -9,7 +9,7 @@ class tomagotchi{
         this.sleepiness = 0;
         this.boredom = 0;
         this.age = 0;
-        this.speed = 600;
+        this.speed = 800;
     };
 };
 
@@ -73,13 +73,11 @@ function start() {
 };
 
 function feed() {
-    duck.speed -= 50;
     duck.hunger--;
     $('#hunger').text(`Hunger: ${duck.hunger}`);
 };
 
 function sleep(){
-    duck.speed -= 50; 
     duck.sleepiness--;
     $('#sleepiness').text(`Sleepiness: ${duck.sleepiness}`);
 };
@@ -94,7 +92,7 @@ function stop(){
     $('#goose').css('opacity', 0);
     $('#goose').finish();
     clearInterval(timer);
-    alert(name + ' was shot out of the sky!');
+    //alert(name + ' was shot out of the sky!');
 };
 
 $('form').on('submit', function(e){
