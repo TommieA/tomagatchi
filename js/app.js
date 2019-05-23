@@ -1,7 +1,6 @@
 let timer;
 let seconds = 0;
 let minutes = 0;
-let msg = "";
 
 class tomagotchi{
     constructor (name) {
@@ -10,7 +9,7 @@ class tomagotchi{
         this.sleepiness = 0;
         this.boredom = 0;
         this.age = 0;
-        this.speed = 700;
+        this.speed = 600;
     };
 };
 
@@ -19,46 +18,48 @@ const duck = new tomagotchi();
 const secondsGoUp = () => {
     seconds++;
     $('.time').text(seconds)
-    if(seconds % 5 === 0){
+    if(seconds % 2 === 0){
         duck.hunger++;
-        duck.speed +=50;
         $('#hunger').text(`Hunger: ${duck.hunger}`);
     }
-    if(seconds % 10 === 0){
+    if(seconds % 3 === 0){
         duck.boredom++;
         $('#boredom').text(`Boredom: ${duck.boredom}`);
     }
-    if(seconds % 15 === 0){
+    if(seconds % 4 === 0){
         duck.sleepiness++;
         $('#sleepiness').text(`Sleepiness: ${duck.sleepiness}`);
     }
-    if(seconds % 30 === 0){
+
+    if(seconds % 5 === 0){
         duck.age++;
         $('#age').text(`Age: ${duck.age}`);
     }
-    if(duck.hunger > 10){
+
+    function finish(){
+        $('#goose').css('opacity', 0);
         $('#goose').finish();
         clearInterval(timer);
-        alert(name + ' starved to death');
+    }
+
+    if(duck.hunger > 9){
+        finish();
+        alert(name + ' starved to death.');
     } 
 
-    if(duck.boredom > 10){
-        clearInterval(timer);
-        $('#goose').finish();
-        alert(name + ' got bored to death');
+    if(duck.boredom > 9){
+        finish();
+        alert(name + ' got bored to death.');
     }
 
-    if(duck.sleepiness > 10){
-        clearInterval(timer);
-        $('#goose').finish();
-        alert(name + ' fell asleep and flew into a tree');
+    if(duck.sleepiness > 9){
+        finish();
+        alert(name + ' fell asleep and flew into a tree.');
     }
 
-    if(duck.age > 10){
-        clearInterval(timer);
-        $('#goose').finish();
-        msg = (name + ' died of old age');
-        alert(msg)
+    if(duck.age > 9){
+        finish();
+        alert(name + ' died of old age.');
     }
 }
 
@@ -78,7 +79,7 @@ function feed() {
 };
 
 function sleep(){
-    duck.speed += 50; 
+    duck.speed -= 50; 
     duck.sleepiness--;
     $('#sleepiness').text(`Sleepiness: ${duck.sleepiness}`);
 };
@@ -89,10 +90,11 @@ function loop(){
 };
 
 function stop(){
-    clearInterval(timer);
     $('#hunter').css('opacity', 1);
-    $('#goose').animate({down: 300});
+    $('#goose').css('opacity', 0);
     $('#goose').finish();
+    clearInterval(timer);
+    alert(name + ' was shot out of the sky!');
 };
 
 $('form').on('submit', function(e){
