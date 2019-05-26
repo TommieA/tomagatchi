@@ -9,7 +9,7 @@ class tomagotchi{
         this.sleepiness = 0;
         this.boredom = 0;
         this.age = 0;
-        this.speed = 800;
+        this.speed = 2000;
     };
 };
 
@@ -18,28 +18,22 @@ const duck = new tomagotchi();
 const secondsGoUp = () => {
     seconds++;
     $('.time').text(seconds)
-    if(seconds % 2 === 0){
+    if(seconds % 4 === 0){
         duck.hunger++;
         $('#hunger').text(`Hunger: ${duck.hunger}`);
     }
-    if(seconds % 3 === 0){
+    if(seconds % 6 === 0){
         duck.boredom++;
         $('#boredom').text(`Boredom: ${duck.boredom}`);
     }
-    if(seconds % 4 === 0){
+    if(seconds % 8 === 0){
         duck.sleepiness++;
         $('#sleepiness').text(`Sleepiness: ${duck.sleepiness}`);
     }
 
-    if(seconds % 5 === 0){
+    if(seconds % 10 === 0){
         duck.age++;
         $('#age').text(`Age: ${duck.age}`);
-    }
-
-    function finish(){
-        $('#goose').css('opacity', 0);
-        $('#goose').finish();
-        clearInterval(timer);
     }
 
     if(duck.hunger > 9){
@@ -72,6 +66,12 @@ function start() {
     animateDiv();
 };
 
+function finish(){
+    $('#goose').css('opacity', 0);
+    $('#goose').finish();
+    clearInterval(timer);
+}
+
 function feed() {
     duck.hunger--;
     $('#hunger').text(`Hunger: ${duck.hunger}`);
@@ -82,17 +82,18 @@ function sleep(){
     $('#sleepiness').text(`Sleepiness: ${duck.sleepiness}`);
 };
 
-function loop(){
+function dive(){
     duck.boredom--;
+    return $('#goose').animate({
+		'marginTop' : "+=30px" //moves down
+		});
     $('#boredom').text(`Boredom: ${duck.boredom}`);
 };
 
 function stop(){
     $('#hunter').css('opacity', 1);
-    $('#goose').css('opacity', 0);
-    $('#goose').finish();
-    clearInterval(timer);
-    //alert(name + ' was shot out of the sky!');
+    finish();
+    alert(name + ' was shot out of the sky!');
 };
 
 $('form').on('submit', function(e){
@@ -100,7 +101,7 @@ $('form').on('submit', function(e){
     start()});
 $('#feed').on('click', function(){feed()});
 $('#sleep').on('click', function(){sleep()});
-$('#loop').on('click', function(){loop()});
+$('#dive').on('click', function(){dive()});
 $('#stop').on('click', function(){stop()});
 
 //animateDiv();    
