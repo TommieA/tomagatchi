@@ -84,9 +84,6 @@ function sleep(){
 
 function dive(){
     duck.boredom--;
-    return $('#goose').animate({
-		'marginTop' : "+=30px" //moves down
-		});
     $('#boredom').text(`Boredom: ${duck.boredom}`);
 };
 
@@ -101,7 +98,7 @@ $('form').on('submit', function(e){
     start()});
 $('#feed').on('click', function(){feed()});
 $('#sleep').on('click', function(){sleep()});
-$('#dive').on('click', function(){dive()});
+$('#loop').on('click', function(){dive()});
 $('#stop').on('click', function(){stop()});
 
 //animateDiv();    
